@@ -1,0 +1,9 @@
+
+[
+            {"nome" : "picaxu", "poder" : 20, "vida" : 200, "defesa" : 25},
+            {"nome" : "cocomon", "poder" : 10, "vida" : 100, "defesa" : 2},
+            {"nome" : "chuchumon", "poder" : 15, "vida" : 150, "defesa" : 23},
+            {"nome" : "bulbamon", "poder" : 15, "vida" : 200, "defesa" : 20},
+            {"nome" : "chocalhomon", "poder" : 100, "vida" : 400, "defesa" : 30}
+            
+]
