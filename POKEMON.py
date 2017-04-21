@@ -62,7 +62,7 @@ def menu ():
                     while poke not in dex :
                         print("Inspermon inválido" "\n")
                         poke=input("Escolha um inspermon válido que deseja usar {}: \n ".format(dex))
-                        poke1 = pokenomes.index(poke) 
+                    poke1 = pokenomes.index(poke) 
                 
                 if var=='nao':
                     print("Que pena...\n")
@@ -76,28 +76,36 @@ def menu ():
         atr=input("Deseja ver os atributos de algum deles? (sim/nao)\n")
         if atr=='sim':
             pe=input("Digite o nome dele: \n")
+            while pe not in dex :
+                print("Inspermon inválido" "\n")
+                pe=input("Escolha um inspermon válido que deseja usar {}:\n  ".format(dex))
             mostra_ipmon(pe)
             menu()
         if atr=='nao':
             print("Então ok :D\n ")
-            menu() 
+           
         else:
             while atr!= 'nao' and atr!='sim':
                 print("Digite uma resposta válida\n")
                 atr=input("Deseja ver os atributos de algum deles? (sim/nao)\n")
                 if atr=='sim':
                     pe=input("Digite o nome dele: \n")
+                    while pe not in dex :
+                        print("Inspermon inválido" "\n")
+                        pe=input("Escolha um inspermon válido que deseja usar {}:\n  ".format(dex))
                     mostra_ipmon(pe)
-                    menu()
+                    
                 if atr=='nao':
                     print("Então ok :D\n ")
-                    menu() 
+                     
                 
                 
     else:
         while esc[0]!='pokedex' and esc[0]!='caminhar'and esc[0]!='dormir':
             print("Resposta errada, tente de novo: \n")
-            menu()
+            esc=[input("O que gostaria de fazer, {}?(dormir/ caminhar/ pokedex)\n ".format(name))]
+
+
 
 
 def mostra_ipmon(nome): 
@@ -121,8 +129,7 @@ def batalha (poke1, poke2):
     d2 = inspermons[poke2]["defesa"]
     fator = [1 ,1 ,1 ,1 ,1 ,1 ,2 ,2, 2]
     print("{} VS {} \n ".format(inspermons[poke1]["nome"].upper(), inspermons[poke2]["nome"].upper()))
-    while v1>0 or v2>0:
-        
+    while v1>0 and v2>0:
         sa1 = random.choice(fator)
         sa2 = random.choice(fator)
         if sa1==2:
@@ -139,33 +146,30 @@ def batalha (poke1, poke2):
             v1 = v1 - del2
         else:
             v2=v2
-        
-        if v1<=0 or v2<=0:
-            
-            if v1>v2:
-                print("PARABÉNS, SEU {} GANHOU A BATALHA!".format(inspermons[poke1]["nome"]).upper()),menu()
-                if inspermons[poke2]["nome"] in dex:
-                    print("Você já tem esse inspermon né? \n")
-                else:
-                    print("Voce capturou um novo pokemon")
-                    dex.append(inspermons[poke2]["nome"])
-       
-            else:
-                print("O SEU {} FOI DERROTADO!".format(inspermons[poke1]["nome"]))
-            break
-        
         lisa=input("Essa é sua vida {0}, e essa é do seu adversário {1}. Deseja continuar lutando? (sim/nao)\n".format(v1,v2))
         if lisa=='sim':
             continue
         if lisa=='nao':
             print("Então empatou!")
-            break
-            menu()
-        else: 
-            print("fodase")
-            lisa=input("Essa é sua vida {0}, e essa é do seu adversário {1}. Deseja continuar lutando? (sim/nao)\n".format(v1,v2))
-        salva_insperdex()
+            
+            
+        else:
+            while lisa!= 'sim' and lisa!= 'nao':
+                print("Resposta inválida \n")
+                lisa=input("Essa é sua vida {0}, e essa é do seu adversário {1}. Deseja continuar lutando? (sim/nao)\n".format(v1,v2))
 
+        if v1<=0 or v2<=0:
+            
+            if v1>v2:
+                print("PARABÉNS, SEU {} GANHOU A BATALHA!".format(inspermons[poke1]["nome"]).upper())
+                salva_insperdex(poke2)
+            else:
+                print("O SEU {} FOI DERROTADO!".format(inspermons[poke1]["nome"]).upper())
+                
+        
+       
+    menu()
+    
 
     
 ## FATOR DE SORTE##
@@ -175,12 +179,13 @@ def batalha (poke1, poke2):
 # SALVA INSPERDEX##
 insperdex = []
 
-def salva_insperdex():
-    for j in inspermons:
-        if j["nome"] in dex:
-            insperdex.append(j)
-
-
+def salva_insperdex(joj):
+    p = inspermons[joj]["nome"]
+    if p not in dex:
+        print("Voce capturou um novo pokemon")
+        dex.append(p)
+    else:
+        print("Você já tem esse inspermon né? \n")
 # MOSTRA INSPERDEX##
     
 #  INICIO DO JOGO#
