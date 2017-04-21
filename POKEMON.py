@@ -118,6 +118,7 @@ def menu ():
             esc=[input("O que gostaria de fazer, {}?(dormir/ caminhar/ pokedex)\n ".format(name))]
 
 
+## MOSTRA POKEMON##
 
 
 def mostra_ipmon(nome): 
@@ -173,8 +174,7 @@ def batalha (poke1, poke2):
         if lisa=='sim':
             print("Próximo round!\n")
         if lisa=='nao':
-            print("Então empatou!")
-            break
+            fugir()
             
         else:
             while lisa!= 'sim' and lisa!= 'nao':
@@ -183,13 +183,22 @@ def batalha (poke1, poke2):
                 if lisa=='sim':
                     print("Próximo round!\n")
                 if lisa=='nao':
-                    print("Então empatou!")
-                    break
+                    fugir()
     menu()
     
 
     
-## FATOR DE SORTE##
+## FUNCAO FUGIR DO JOGO ##
+
+def fugir ():
+    fator = [1,2]
+    Foge = random.choice(fator)
+    if Foge == 1:
+        print("Fuga realizada com sucesso!")
+        menu()
+    else:
+        print("Fuga não realizada com sucesso! Segue o jogo!")
+        
 
 
 
