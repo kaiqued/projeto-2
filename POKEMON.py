@@ -43,11 +43,18 @@ def menu ():
         print("UM {} SELVAGEM APARECEU!!" "\n".format(inspermons[poke2]["nome"]).upper())
         var=input("Você deseja batalhar? (sim/nao)\n")
         if var=='sim':
-            poke=input("Escolha o inspermon que deseja usar para a batalha:\n {} ".format(dex))
-         
+            print("Aqui estão seus inspermons: \n") 
+            for i in dex:
+                print(i,"\n")
+            
+            poke=input("Escolha o inspermon que deseja usar para a batalha:\n  ")
+            
+            
             while poke not in dex :
                 print("Inspermon inválido" "\n")
-                poke=input("Escolha um inspermon válido que deseja usar {}:\n  ".format(dex))
+
+                poke=input("Escolha um inspermon válido que deseja usar:\n  ")
+                
             poke1 = pokenomes.index(poke) 
         if var=='nao':
                     print("Que pena...")
@@ -57,11 +64,16 @@ def menu ():
                 print("digite uma resposta válida")
                 var=input("Você deseja batalhar? (sim/nao)\n")
                 if var=='sim':
-                    poke=input("Escolha o inspermon que deseja usar para a batalha:\n {} ".format(dex))
+                    print("Aqui estão seus inspermons: \n") 
+                    for i in dex:
+                        print(i,"\n")
+                    poke=input("Escolha o inspermon que deseja usar para a batalha:\n ")
                     
                     while poke not in dex :
                         print("Inspermon inválido" "\n")
-                        poke=input("Escolha um inspermon válido que deseja usar {}: \n ".format(dex))
+                        poke=input("Escolha um inspermon válido que deseja usar: \n ")
+                        for a in dex:
+                            print(a)
                     poke1 = pokenomes.index(poke) 
                 
                 if var=='nao':
@@ -146,28 +158,33 @@ def batalha (poke1, poke2):
             v1 = v1 - del2
         else:
             v2=v2
-        lisa=input("Essa é sua vida {0}, e essa é do seu adversário {1}. Deseja continuar lutando? (sim/nao)\n".format(v1,v2))
-        if lisa=='sim':
-            continue
-        if lisa=='nao':
-            print("Então empatou!")
-            
-            
-        else:
-            while lisa!= 'sim' and lisa!= 'nao':
-                print("Resposta inválida \n")
-                lisa=input("Essa é sua vida {0}, e essa é do seu adversário {1}. Deseja continuar lutando? (sim/nao)\n".format(v1,v2))
 
         if v1<=0 or v2<=0:
             
             if v1>v2:
                 print("PARABÉNS, SEU {} GANHOU A BATALHA!".format(inspermons[poke1]["nome"]).upper())
                 salva_insperdex(poke2)
+        
             else:
                 print("O SEU {} FOI DERROTADO!".format(inspermons[poke1]["nome"]).upper())
-                
-        
-       
+            break
+    
+        lisa=input("Essa é sua vida {0}, e essa é do seu adversário {1}. Deseja continuar lutando? (sim/nao)\n".format(v1,v2))
+        if lisa=='sim':
+            print("Próximo round!\n")
+        if lisa=='nao':
+            print("Então empatou!")
+            break
+            
+        else:
+            while lisa!= 'sim' and lisa!= 'nao':
+                print("Resposta inválida \n")
+                lisa=input("Essa é sua vida {0}, e essa é do seu adversário {1}. Deseja continuar lutando? (sim/nao)\n".format(v1,v2))
+                if lisa=='sim':
+                    print("Próximo round!\n")
+                if lisa=='nao':
+                    print("Então empatou!")
+                    break
     menu()
     
 
@@ -197,4 +214,10 @@ while first not in pokenomes:
     first = input("Esse inspermon nao existe. \nEscolha seu inspermon inicial: (picaxu/cocomon)  \n")
 mostra_ipmon(first)
 dex.append(first)
-menu()
+
+## LOOP DO JOGO:##
+
+while len(dex)<len(pokenomes):
+    menu()
+print("Parabéns você zerou o jogo!!!")
+
