@@ -1,9 +1,11 @@
 
 [
-            {"nome" : "picaxu", "poder" : 40, "vida" : 200, "defesa" : 25},
-            {"nome" : "minimon", "poder" : 25, "vida" : 100, "defesa" : 15},
-            {"nome" : "chuchumon", "poder" : 35, "vida" : 150, "defesa" : 30},
-            {"nome" : "bulbamon", "poder" : 35, "vida" : 200, "defesa" : 20},
-            {"nome" : "chocalhomon", "poder" : 60, "vida" : 300, "defesa" : 30}
+            {"nome" : "picaxu", "poder" : 40, "vida" : 200, "defesa" : 25, "exp" : 0},
+            {"nome" : "minimon", "poder" : 25, "vida" : 100, "defesa" : 15, "exp" : 0},
+            {"nome" : "chuchumon", "poder" : 35, "vida" : 150, "defesa" : 30, "exp" : 0},
+            {"nome" : "bulbamon", "poder" : 35, "vida" : 200, "defesa" : 20, "exp" : 0},
+            {"nome" : "chocalhomon", "poder" : 60, "vida" : 300, "defesa" : 30, "exp" : 0},
+            {"nome" : "gigasauro", "poder" : 55, "vida" : 250, "defesa" : 20, "exp" : 0}
+            
             
 ]

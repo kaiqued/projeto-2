@@ -2,12 +2,13 @@ import json
 with open('pokepoke.json') as arquivo: 
     inspermons = json.load(arquivo)
 import time
-
+import random
 ##  PEGA OS INSPERMONS EM DICIONÁRIOS E TRANSFORMA OS NOMES, VIDA, DEFESA E PODER EM LISTAS##
 pokenomes=[]
 pokevidas=[]
 pokedefesas=[]
 pokepoderes=[]
+pokexp=[]
 for i in range(len(inspermons)):
     nomes = inspermons[i]["nome"]
     pokenomes.append(nomes)
@@ -20,11 +21,14 @@ for i in range(len(inspermons)):
     
     poderes = inspermons[i]["poder"]
     pokepoderes.append(poderes)
+    
+    experiencias = inspermons[i]["exp"]
+    pokexp.append(experiencias)
 
 ## MENU INICIAL##
 def menu ():
-    esc=[input("O que gostaria de fazer, {}?(dormir/ caminhar/ pokedex)\n ".format(name))]
-    if esc[0]=='dormir':
+    esc=input("O que gostaria de fazer, {}?(dormir/ caminhar/ pokedex)\n ".format(name))
+    if esc=='dormir':
         print("Boa noite!!  \n")
         time.sleep(0.9)
         print("Zzzzzzzzz")
@@ -37,7 +41,7 @@ def menu ():
         time.sleep(0.9)
         print("Bom dia!!")
         menu() 
-    if esc[0]=='caminhar':
+    if esc=='caminhar':
         print("Você estava andando até que... \n")
         ale = range(len(inspermons))
         poke2 = random.choice(ale)
@@ -82,7 +86,7 @@ def menu ():
                     menu() 
                 
         batalha(poke1,poke2)
-    if esc[0]=='pokedex':
+    if esc=='pokedex':
         print("Aqui estão seus inspermons: \n") 
         for i in dex:
             print(i,"\n")
@@ -115,10 +119,10 @@ def menu ():
                 
                 
     else:
-        while esc[0]!='pokedex' and esc[0]!='caminhar'and esc[0]!='dormir':
+        while esc!='pokedex' and esc!='caminhar'and esc!='dormir':
             print("Resposta errada, tente de novo: \n")
-            esc=[input("O que gostaria de fazer, {}?(dormir/ caminhar/ pokedex)\n ".format(name))]
-    menu()
+            menu()
+    
 
 ## MOSTRA POKEMON##
 
@@ -126,15 +130,16 @@ def menu ():
 def mostra_ipmon(nome): 
     i = pokenomes.index(nome)
     print("Você escolheu o {0}, estes são seus atributos:".format(pokenomes[i]))
-    print("poder = {0}".format(pokepoderes[i])) 
-    print("vida = {0}".format(pokevidas[i]))
-    print("defesa = {0}\n".format(pokedefesas[i]))
+    print("poder= {0}".format(pokepoderes[i])) 
+    print("vida= {0}".format(pokevidas[i]))
+    print("defesa= {0}".format(pokedefesas[i]))
+    print("experiência= {0}\n".format(pokexp[i]))
     
     
    
 ##   MODO BATALHA##
 
-import random
+
 def batalha (poke1, poke2):
     v1 = inspermons[poke1]["vida"]
     v2 = inspermons[poke2]["vida"]
@@ -202,10 +207,12 @@ def fugir ():
         print("Fuga não realizada com sucesso! Segue o jogo!")
         
 
+## FUNCAO EVOLUIR INSPERMON ##
+
 
 
 # SALVA INSPERDEX##
-insperdex = []
+dex = []
 
 def salva_insperdex(joj):
     p = inspermons[joj]["nome"]
@@ -214,11 +221,10 @@ def salva_insperdex(joj):
         dex.append(p)
     else:
         print("Você já tem esse inspermon né? \n")
-# MOSTRA INSPERDEX##
     
 #  INICIO DO JOGO#
 print("Bem vindo ao INSPERMON, caro treinador! \n")
-dex=[]
+
 name = input("Para começarmos diga seu nome:  \n")
 if name == 'Daniel' or name == 'daniel':
     print("Bom dia Daniel!!")
@@ -230,7 +236,7 @@ dex.append(first)
 
 ## LOOP DO JOGO:##
 
-while len(dex)<len(pokenomes):
+while len(dex)<len(pokenomes) - 1:
     menu()
 print("Parabéns você zerou o jogo!!!")
 
