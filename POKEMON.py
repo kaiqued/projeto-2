@@ -219,6 +219,8 @@ def salva_insperdex(joj):
 print("Bem vindo ao INSPERMON, caro treinador! \n")
 dex=[]
 name = input("Para começarmos diga seu nome:  \n")
+if name == 'Daniel' or name == 'daniel':
+    print("Bom dia Daniel!!")
 first = input("Olá, {0}. Escolha seu inspermon inicial: (picaxu/minimon)  \n".format(name))
 while first not in pokenomes:
     first = input("Esse inspermon nao existe. \nEscolha seu inspermon inicial: (picaxu/minimon)  \n")
