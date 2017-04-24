@@ -96,6 +96,7 @@ def menu ():
             menu()
         if atr=='nao':
             print("Então ok :D\n ")
+            
            
         else:
             while atr!= 'nao' and atr!='sim':
@@ -117,7 +118,7 @@ def menu ():
         while esc[0]!='pokedex' and esc[0]!='caminhar'and esc[0]!='dormir':
             print("Resposta errada, tente de novo: \n")
             esc=[input("O que gostaria de fazer, {}?(dormir/ caminhar/ pokedex)\n ".format(name))]
-
+    menu()
 
 ## MOSTRA POKEMON##
 
@@ -209,7 +210,7 @@ insperdex = []
 def salva_insperdex(joj):
     p = inspermons[joj]["nome"]
     if p not in dex:
-        print("Voce capturou um novo pokemon")
+        print("Voce capturou um novo inspermon")
         dex.append(p)
     else:
         print("Você já tem esse inspermon né? \n")
