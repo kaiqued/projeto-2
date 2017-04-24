@@ -2,6 +2,7 @@ import json
 with open('pokepoke.json') as arquivo: 
     inspermons = json.load(arquivo)
 import time
+
 ##  PEGA OS INSPERMONS EM DICIONÁRIOS E TRANSFORMA OS NOMES, VIDA, DEFESA E PODER EM LISTAS##
 pokenomes=[]
 pokevidas=[]
@@ -37,7 +38,7 @@ def menu ():
         print("Bom dia!!")
         menu() 
     if esc[0]=='caminhar':
-        print("Você estava andando até que..." "\n")
+        print("Você estava andando até que... \n")
         ale = range(len(inspermons))
         poke2 = random.choice(ale)
         print("UM {} SELVAGEM APARECEU!!" "\n".format(inspermons[poke2]["nome"]).upper())
@@ -170,7 +171,7 @@ def batalha (poke1, poke2):
                 print("O SEU {} FOI DERROTADO!".format(inspermons[poke1]["nome"]).upper())
             break
     
-        lisa=input("Essa é sua vida {0}, e essa é do seu adversário {1}. Deseja continuar lutando? (sim/nao)\n".format(v1,v2))
+        lisa=input("Sua vida é {0}, a vida do seu adversário é {1}. Deseja continuar lutando? (sim/nao)\n".format(v1,v2))
         if lisa=='sim':
             print("Próximo round!\n")
         if lisa=='nao':
@@ -179,9 +180,9 @@ def batalha (poke1, poke2):
         else:
             while lisa!= 'sim' and lisa!= 'nao':
                 print("Resposta inválida \n")
-                lisa=input("Essa é sua vida {0}, e essa é do seu adversário {1}. Deseja continuar lutando? (sim/nao)\n".format(v1,v2))
+                lisa=input("Sua vida é {0}, a vida do seu adversário é {1}. Deseja continuar lutando? (sim/nao)\n".format(v1,v2))
                 if lisa=='sim':
-                    print("Próximo round!\n")
+                    print("\n Próximo round! \n")
                 if lisa=='nao':
                     fugir()
     menu()
@@ -215,12 +216,12 @@ def salva_insperdex(joj):
 # MOSTRA INSPERDEX##
     
 #  INICIO DO JOGO#
-print("Bem vindo caro treinador! \n")
+print("Bem vindo ao INSPERMON, caro treinador! \n")
 dex=[]
 name = input("Para começarmos diga seu nome:  \n")
-first = input("Olá, {0}.Escolha seu inspermon inicial: (picaxu/cocomon)  \n".format(name))
+first = input("Olá, {0}. Escolha seu inspermon inicial: (picaxu/minimon)  \n".format(name))
 while first not in pokenomes:
-    first = input("Esse inspermon nao existe. \nEscolha seu inspermon inicial: (picaxu/cocomon)  \n")
+    first = input("Esse inspermon nao existe. \nEscolha seu inspermon inicial: (picaxu/minimon)  \n")
 mostra_ipmon(first)
 dex.append(first)
 

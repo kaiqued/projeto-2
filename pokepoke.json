@@ -1,9 +1,9 @@
 
 [
-            {"nome" : "picaxu", "poder" : 20, "vida" : 200, "defesa" : 25},
-            {"nome" : "cocomon", "poder" : 10, "vida" : 100, "defesa" : 2},
-            {"nome" : "chuchumon", "poder" : 15, "vida" : 150, "defesa" : 23},
-            {"nome" : "bulbamon", "poder" : 15, "vida" : 200, "defesa" : 20},
-            {"nome" : "chocalhomon", "poder" : 100, "vida" : 400, "defesa" : 30}
+            {"nome" : "picaxu", "poder" : 40, "vida" : 200, "defesa" : 25},
+            {"nome" : "minimon", "poder" : 25, "vida" : 100, "defesa" : 15},
+            {"nome" : "chuchumon", "poder" : 35, "vida" : 150, "defesa" : 30},
+            {"nome" : "bulbamon", "poder" : 35, "vida" : 200, "defesa" : 20},
+            {"nome" : "chocalhomon", "poder" : 60, "vida" : 300, "defesa" : 30}
             
 ]
