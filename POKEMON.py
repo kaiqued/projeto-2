@@ -8,7 +8,7 @@ pokenomes=[]
 pokevidas=[]
 pokedefesas=[]
 pokepoderes=[]
-pokexp=[]
+
 for i in range(len(inspermons)):
     nomes = inspermons[i]["nome"]
     pokenomes.append(nomes)
@@ -22,8 +22,7 @@ for i in range(len(inspermons)):
     poderes = inspermons[i]["poder"]
     pokepoderes.append(poderes)
     
-    experiencias = inspermons[i]["exp"]
-    pokexp.append(experiencias)
+
 
 ## MENU INICIAL##
 def menu ():
@@ -132,9 +131,7 @@ def mostra_ipmon(nome):
     print("Você escolheu o {0}, estes são seus atributos:".format(pokenomes[i]))
     print("poder= {0}".format(pokepoderes[i])) 
     print("vida= {0}".format(pokevidas[i]))
-    print("defesa= {0}".format(pokedefesas[i]))
-    print("experiência= {0}\n".format(pokexp[i]))
-    
+    print("defesa= {0} \n".format(pokedefesas[i]))
     
    
 ##   MODO BATALHA##
@@ -172,7 +169,6 @@ def batalha (poke1, poke2):
             if v1>v2:
                 print("PARABÉNS, SEU {} GANHOU A BATALHA!".format(inspermons[poke1]["nome"]).upper())
                 salva_insperdex(poke2)
-                evolui(poke1)
                 
         
             else:
@@ -193,7 +189,6 @@ def batalha (poke1, poke2):
                     print("\n Próximo round! \n")
                 if lisa=='nao':
                     fugir()
-    menu()
     
 
     
@@ -208,10 +203,6 @@ def fugir ():
     else:
         print("Fuga não realizada com sucesso! Segue o jogo!")
         
-
-## FUNCAO EVOLUIR INSPERMON ##
-def evolui(pokemon):
-    
 
 
 # SALVA INSPERDEX##
