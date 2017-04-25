@@ -172,6 +172,8 @@ def batalha (poke1, poke2):
             if v1>v2:
                 print("PARABÉNS, SEU {} GANHOU A BATALHA!".format(inspermons[poke1]["nome"]).upper())
                 salva_insperdex(poke2)
+                evolui(poke1)
+                
         
             else:
                 print("O SEU {} FOI DERROTADO!".format(inspermons[poke1]["nome"]).upper())
@@ -208,7 +210,8 @@ def fugir ():
         
 
 ## FUNCAO EVOLUIR INSPERMON ##
-
+def evolui(pokemon):
+    
 
 
 # SALVA INSPERDEX##
@@ -221,6 +224,8 @@ def salva_insperdex(joj):
         dex.append(p)
     else:
         print("Você já tem esse inspermon né? \n")
+
+
     
 #  INICIO DO JOGO#
 print("Bem vindo ao INSPERMON, caro treinador! \n")
@@ -236,7 +241,5 @@ dex.append(first)
 
 ## LOOP DO JOGO:##
 
-while len(dex)<len(pokenomes) - 1:
+while len(dex)<len(pokenomes):
     menu()
-print("Parabéns você zerou o jogo!!!")
-
